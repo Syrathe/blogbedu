@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; //le damos un alias a BrowserRouter
+import { BrowserRouter as Router, Route } from 'react-router-dom'; //le damos un alias a BrowserRouter
 import Home from './Home'
 import Add from './Add'
 import Menu from './Menu'
+import View from './View'
+import Edit from './Edit'
 
 class App extends Component {
 
   render() {
     return (
-      /*will work as a wrapper, also, we are using the alias assigned in line 2*/
+      /*will work as a wrapper, also, we are using the alias assigned in line 2 - Router must wrap every component that will use it.*/
       <Router> 
         <div>
           <Menu/>
@@ -20,6 +22,8 @@ class App extends Component {
             </div>
             <Route path ="/home" component = {Home}/>
             <Route path ="/add" component = {Add}/>
+            <Route path="/view/:id" component = {View}/>
+            <Route path="/edit/:id" component = {Edit}/>
             
           </div>
         </div>

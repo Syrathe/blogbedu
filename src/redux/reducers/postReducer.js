@@ -33,16 +33,16 @@ export default (state = INITIAL_STATE, action)=>{ /* Esto solo va a asignar el v
       return { ...state, post }  
 
     case UPDATE_POSTS :
+      post.created = Date.now() //aqui se tiene que declarar el created, antes del push.
       posts.push(post)
       post = {
         title:'',
         excerpt:'',
         content:'',
-        author:''
-      }
+        author:'', //Esto lo que hace es limpiar los campos de los inputs.
+      }//Aqui no se puede declarar en created por que esto limpia el estado.
       return {...state, post, posts}
     default:
       return state
-    
   }
 }
