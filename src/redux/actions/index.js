@@ -1,5 +1,5 @@
-import {UPDATE_TITLE, UPDATE_EXCERPT, UPDATE_CONTENT, UPDATE_AUTHOR, UPDATE_POSTS} from './actionTypes'
-import post from './'
+import {UPDATE_TITLE, UPDATE_EXCERPT, UPDATE_CONTENT, UPDATE_AUTHOR, UPDATE_POSTS, SAVE_UPDATE} from './actionTypes'
+
 /* Todas nuestras acciones van a ser objetos con estas propiedades
 actions {
   type: UPDATE_TITLE,
@@ -21,7 +21,7 @@ export const updateExcerpt = excerpt => {
 }
 
 export const updateContent = content => {
- return{
+  return{
     type: UPDATE_CONTENT,
     payload: content
   }
@@ -29,14 +29,21 @@ export const updateContent = content => {
 
 export const updateAuthor = author => {
   return{
-     type: UPDATE_AUTHOR,
-     payload: author
-   }
- }
+    type: UPDATE_AUTHOR,
+    payload: author
+  }
+}
 
 export const updatePosts = () => {
-      return {
-        type: UPDATE_POSTS,
-        payload: null // esta accion no necesita que le pase nada al payload, por que el valor ya esta en el estado, con el resto de mi codigo.
-      }
-    }
+  return {
+    type: UPDATE_POSTS,
+    payload: null // esta accion no necesita que le pase nada al payload, por que el valor ya esta en el estado, con el resto de mi codigo.
+  }
+}
+
+export const saveUpdate = () => {
+  return {
+    type: SAVE_UPDATE,
+    payload: null // verificar la certeza de esto
+  }
+}

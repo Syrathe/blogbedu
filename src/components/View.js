@@ -1,9 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+
+const validate = (itemVerified) => {
+  if(!isNaN(itemVerified)) {
+    return itemVerified
+  }
+};
 
 const View = ({posts, match }) => {
-  let result = posts.filter(post => post.created == match.params.id );
+  
+  let result = posts.filter(post => validate(post.created) == validate(match.params.id));
   console.log(result[0]);
   
   return (

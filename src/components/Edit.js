@@ -7,7 +7,7 @@ class Edit extends Component {
   componentDidMount() {
     let {
       posts, match, updateTitle, updateExcerpt, 
-      updateContent, updateAuthor, updatePosts,
+      updateContent, updateAuthor
     } = this.props
 
     let result = posts.find(post => post.created === parseInt(match.params.id ));
@@ -21,7 +21,7 @@ class Edit extends Component {
     let {
       title, excerpt, content, 
       author, updateTitle, updateExcerpt, 
-      updateContent, updateAuthor, updatePosts,
+      updateContent, updateAuthor, saveUpdate,
    } = this.props
   
     return (
@@ -62,8 +62,8 @@ class Edit extends Component {
               </div>
 
               <button className = "btn btn-primary"
-              onClick = {() => updatePosts()} >Save</button> {/*Cambiar esta funcion para reemplazar el indice del array, no crear uno nuevo */}
-              <Link to ="/home" className="btn btn-secondary">Cancel</Link>
+              onClick = {() => saveUpdate()}> Update </button>
+              <Link to = "/home" className = "btn btn-secondary"> Cancel </Link>
             </div>
           </div>
         </div>
